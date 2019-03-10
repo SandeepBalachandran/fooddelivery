@@ -13,6 +13,9 @@ export class AppComponent {
   {
   	switch(clicked)
   	{
+			case 'dashboard':
+  		this.router.navigate(['/dashboard'])
+  		break;
   		case 'provider':
   		this.router.navigate(['/provider'])
   		break;
@@ -27,6 +30,10 @@ export class AppComponent {
 
   		case 'auth':
   		this.router.navigate(['/auth'])
+			break;
+			
+			case 'admin':
+  		this.router.navigate(['/admin'])
   		break;
   	}
   }

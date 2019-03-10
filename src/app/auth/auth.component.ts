@@ -26,5 +26,9 @@ password: string;
       alert("Invalid credentials");
     }
   }
+  register()
+  {
+    
+  }
   
 }

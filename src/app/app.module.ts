@@ -15,6 +15,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
+
 import {MatTableModule} from '@angular/material/table';
 import {
   MatAutocompleteModule,
@@ -48,6 +49,7 @@ import {
   MatSnackBarModule,
   MatSortModule,
   MatStepperModule,
+  
 
   MatTabsModule,
   MatToolbarModule,
@@ -61,6 +63,8 @@ import {
 import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,9 @@ import { CommonModule } from '@angular/common';
     ProviderComponent,
     AgentComponent,
     ReceiverComponent,
-    AuthComponent
+    AuthComponent,
+    DashboardComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +90,7 @@ import { CommonModule } from '@angular/common';
     MatSelectModule,
     MatCheckboxModule,
     MatIconModule,
+    MatRippleModule,
 
 
     CommonModule, 

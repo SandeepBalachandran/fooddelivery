@@ -4,6 +4,8 @@ import { ProviderComponent } from './provider/provider.component';
 import { AgentComponent } from './agent/agent.component';
 import { ReceiverComponent } from './receiver/receiver.component';
 import { AuthComponent } from './auth/auth.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AdminComponent } from './admin/admin.component';
 
 export const routes: Routes = [
 	{ 
@@ -27,6 +29,14 @@ export const routes: Routes = [
 	{
 		path:'receiver',
 		component:ReceiverComponent
+	},
+	{
+		path:'dashboard',
+		component:DashboardComponent
+	},
+	{
+		path:'admin',
+		component:AdminComponent
 	},
 	];
 

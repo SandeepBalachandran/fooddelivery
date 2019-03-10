@@ -1,0 +1,17 @@
+<div class="main-panel">
+  <button (click)="openModal()">Open Modal</button>
+</div>
+
+
+
+<div *ngIf="agent_popup" class="wrap">
+    <div class="content">
+        <mat-form-field>
+            <mat-select placeholder="Favorite food">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+  </div>
