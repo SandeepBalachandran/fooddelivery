@@ -28,7 +28,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','Actions'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   centered = false;
