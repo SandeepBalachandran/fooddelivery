@@ -17,6 +17,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http'
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -91,6 +92,7 @@ import { AdminComponent } from './admin/admin.component';
     MatCheckboxModule,
     MatIconModule,
     MatRippleModule,
+    HttpClientModule,
 
 
     CommonModule, 
