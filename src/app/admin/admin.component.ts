@@ -1,12 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from "../services.service";
-
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import { DataSource } from '@angular/cdk/table';
 
 
 @Component({
@@ -15,72 +10,63 @@ export interface Food {
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'useranme', 'role', 'address','mobilenumber','actions'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  displayedColumns=[];
+  dataSource;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-
-
+  columnNames = [
+                  { id: "name",value: "Name"}, 
+                  { id: "username",value: "Username"},
+                  {id: "role",value: "Role"},
+                  {id: "address",value: "Address"},
+                  {id: "phone",value: "Mobile Number"},
+                  {id: "actions",value: "Actions"}
+                ] ;
 
   constructor(private service: ServicesService) { }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource.paginator = this.paginator;
+    this.displayedColumns = this.columnNames.map(x => x.id);
+  
     this.loaddata();
   }
   agent_popup=false;
-  baseUrl;any;
+    
 
   loaddata()
   {
-    this.loading = true;
+    // this.loading = true;
     this.service.getagents().subscribe(
       data => 
       {
-        console.log(data);
-        console.log(data.address);
-        this.processdata(data)
-
-
-      },
-      
-    );
+        this.createTable(data)
+      },);
   }
-  incomingData=[];
-
-  processdata(data:any)
-  {
-    this.incomingData=data;
-    console.log('h')
-    console.log(this.incomingData)
-  }
-
   assignData()
   {
     this.agent_popup=true;
   }
 
-
-
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
+ 
+  createTable(data:any) 
+  {
+    let tableArr: PeriodicElement[] = [
+      { 
+        name:data[0].name, 
+        username: data[0].username, 
+        role:data[0].role,
+        address:data[0].address,
+        phone:data[0].mobile_no
+      }];
+    this.dataSource = new MatTableDataSource<PeriodicElement>(tableArr);
+  }
 
 
 }
 export interface PeriodicElement {
   name: string;
- 
-  useraname:string;
+  username:string;
   role:string;
   address:string;
-  mobilenumber:number;
+  phone:number;
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { name: 'Hydrogen', useranme: 1.0079, role:'sdf',address:'sfds',mobilenumber:'sfdsf'}
-  
-];
