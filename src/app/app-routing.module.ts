@@ -8,40 +8,39 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 
 export const routes: Routes = [
-	{ 
-		path: '', 
-		redirectTo: '/auth', 
-		pathMatch: 'full' 
-	},
-	{
-		path: 'auth',
-		component: AuthComponent,
-	},
-	
-	{
-		path:'agent',
-		component:AgentComponent
-	},
-	{
-		path:'provider',
-		component:ProviderComponent
-	},
-	{
-		path:'receiver',
-		component:ReceiverComponent
-	},
-	{
-		path:'dashboard',
-		component:DashboardComponent
-	},
-	{
-		path:'admin',
-		component:AdminComponent
-	},
-	];
+  {
+    path: '',
+    redirectTo: '/auth',
+    pathMatch: 'full'
+  },
+  {
+    path: 'auth',
+    component: AuthComponent
+  },
+  {
+    path: 'agent',
+    component: AgentComponent
+  },
+  {
+    path: 'provider',
+    component: ProviderComponent
+  },
+  {
+    path: 'receiver',
+    component: ReceiverComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent
+  },
+  {
+    path: 'admin',
+    component: AdminComponent
+  }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
