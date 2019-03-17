@@ -2,26 +2,26 @@
   <!-- <button (click)="openModal()">Open Modal</button> -->
   <div class="table-wrap">
     <div class="mat-elevation-z8">
-        <table mat-table [dataSourcesymbol]="dataSource">
-      
+        <table mat-table [dataSource]="dataSource">
+
           <!-- Position Column symbol-->
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Name </th>
             <td mat-cell *matCellDef="let element"> {{element.name}} </td>
           </ng-container>
-      
+
           <!-- Name Column -->
           <ng-container matColumnDef="useranme">
             <th mat-header-cell *matHeaderCellDef> Username </th>
             <td mat-cell *matCellDef="let element"> {{element.username}} </td>
           </ng-container>
-      
+
           <!-- Weight Column -->
           <ng-container matColumnDef="role">
             <th mat-header-cell *matHeaderCellDef> Role </th>
             <td mat-cell *matCellDef="let element"> {{element.role}} </td>
           </ng-container>
-      
+
           <!-- Symbol Column -->
           <ng-container matColumnDef="address">
             <th mat-header-cell *matHeaderCellDef> Address </th>
@@ -35,25 +35,25 @@
 
 
 
-          <ng-container matColumnDef="Actions">
+          <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions</th>
               <td mat-cell *matCellDef="let element"> <button class="btn btn-success" (click)="assignData()">Assign</button></td>
             </ng-container>
-      
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-      
+
         <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator> -->
       </div>
     </div>
-    
 
-  
+
+
 </div>
 
- 
-<div *ngIf="agent_popup" class="wrap">
+
+<div *ngIf="agentPopup" class="wrap">
     <div class="content">
         <mat-form-field>
             <mat-select placeholder="Favorite food">
@@ -70,7 +70,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <button (click)="agent_popup=false">Save</button>
-          <button (click)="agent_popup=false">close</button>
+          <button (click)="agentPopup=false">Save</button>
+          <button (click)="agentPopup=false">close</button>
     </div>
-  </div> 
+  </div>
