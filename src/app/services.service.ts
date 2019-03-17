@@ -7,21 +7,16 @@ import { map, catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 
- 
-
 export class ServicesService {
-	baseUrl = 'http://ec2-18-191-120-45.us-east-2.compute.amazonaws.com:3804/';
-  
-  
 
+  baseUrl = 'http://ec2-18-191-120-45.us-east-2.compute.amazonaws.com:3804/';
 
-     httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/x-www-form-urlencoded'
-      }),
-
-      withCredentials: true
-    };
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/x-www-form-urlencoded'
+    }),
+    withCredentials: true
+  };
 
   constructor( private http: HttpClient) 
   {
@@ -43,16 +38,16 @@ export class ServicesService {
     return this.http.get<any>(this.baseUrl + 'receivers');
   }
 
-  login(username:any,password:any) 
-  {
+  login(username: any, password: any) {
     const input = new FormData();
-    console.log(username,password)
     input.append('username', username);
     input.append('password', password);
-    return this.http.post<any>(this.baseUrl + 'login',input,this.httpOptions);
+    return this.http.post<any>(this.baseUrl + 'login', input, this.httpOptions);
   }
 
+  register() {
+    const input = new FormData();
+    return this.http.post<any>(this.baseUrl + 'login', input, this.httpOptions); ;
+  }
 
-
-        
 }
