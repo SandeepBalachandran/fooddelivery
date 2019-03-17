@@ -23,13 +23,25 @@ export class ServicesService {
       withCredentials: true
     };
 
-  constructor( private http: HttpClient) { }
+  constructor( private http: HttpClient) 
+  {
 
-  getagents() {return this.http.get<any>(this.baseUrl + 'agents');}
+  }
+  
+  getagents() 
+  {
+    return this.http.get<any>(this.baseUrl + 'agents');
+  }
 
-  getdontations() {return this.http.get<any>(this.baseUrl + 'alldonations');}
+  getdontations() 
+  {
+    return this.http.get<any>(this.baseUrl + 'alldonations');
+  }
 
-  getreceivers() {return this.http.get<any>(this.baseUrl + 'receivers');}
+  getreceivers() 
+  {
+    return this.http.get<any>(this.baseUrl + 'receivers');
+  }
 
   login(username:any,password:any) 
   {

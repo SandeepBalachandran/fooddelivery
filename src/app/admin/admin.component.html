@@ -56,7 +56,7 @@
 <div *ngIf="agentPopup" class="wrap">
     <div class="content">
         <mat-form-field>
-            <mat-select placeholder="Favorite food">
+            <mat-select placeholder="Assign to agent">
               <mat-option *ngFor="let food of foods" [value]="food.value">
                 {{food.viewValue}}
               </mat-option>
@@ -64,7 +64,7 @@
           </mat-form-field>
 
           <mat-form-field>
-            <mat-select placeholder="Favorite food">
+            <mat-select placeholder="Assign Receiver">
               <mat-option *ngFor="let food of foods" [value]="food.value">
                 {{food.viewValue}}
               </mat-option>
