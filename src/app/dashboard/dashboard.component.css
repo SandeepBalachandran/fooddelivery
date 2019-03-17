@@ -5,4 +5,13 @@ table {
   th.mat-sort-header-sorted {
     color: black;
   }
-  
+  .table-wrap
+  {
+    /* height: 77vh; */
+
+  }
+
+  .image-wrap
+  {
+
+  }

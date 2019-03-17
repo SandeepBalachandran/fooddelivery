@@ -40,9 +40,9 @@ export class AdminComponent implements OnInit {
   incomingData = [];
 
   foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
+    {value: 'steak-0', viewValue: 'Person 1'},
+    {value: 'pizza-1', viewValue: 'Person 2'},
+    {value: 'tacos-2', viewValue: 'Person 3'}
   ];
 
   ngOnInit() {

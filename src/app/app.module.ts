@@ -92,6 +92,7 @@ import { AdminComponent } from './admin/admin.component';
     MatCheckboxModule,
     MatIconModule,
     MatRippleModule,
+    MatGridListModule,
     HttpClientModule,
 
 

@@ -11,9 +11,13 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-export interface Food {
-  value: string;
-  viewValue: string;
+
+
+export interface Tile {
+  color: string;
+  cols: number;
+  rows: number;
+  text: string;
 }
 
 
@@ -50,6 +54,13 @@ export class DashboardComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'Tacos'}
   ];
 
+  tiles: Tile[] = [
+    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+  ];
+
   ngOnInit() {
     this.loaddata();
   }
@@ -74,4 +85,8 @@ export class DashboardComponent implements OnInit {
     this.agentPopup = true;
   }
  
+}
+export interface Food {
+  value: string;
+  viewValue: string;
 }
