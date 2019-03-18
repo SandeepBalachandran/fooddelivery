@@ -28,12 +28,20 @@ export interface Tile {
 })
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = [
-    'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address','Actions'];
+    'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address',
+    'checked','completed','delivered'];
 
 
   centered = false;
   disabled = false;
   unbounded = false;
+
+  checked = false;
+  completed=false;
+  delivered=false;
+  indeterminate = false;
+  labelPosition = 'after';
+
 
   radius: number;
   color: string;
