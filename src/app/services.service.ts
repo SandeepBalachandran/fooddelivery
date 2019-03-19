@@ -22,7 +22,18 @@ export class ServicesService {
   {
 
   }
-  
+  getdataforagentpage(agentid) 
+  {
+    let body = `agent=${agentid}`;
+    return this.http.post<any>(this.baseUrl + 'agents_donation',body,this.httpOptions);
+  }
+
+  getdataforreceiverpage(receiverid) 
+  {
+    let body = `receiver=${receiverid}`;
+    return this.http.post<any>(this.baseUrl + 'receivers_donation',body,this.httpOptions);
+  }
+
   getagents() 
   {
     return this.http.get<any>(this.baseUrl + 'agents');
@@ -38,16 +49,28 @@ export class ServicesService {
     return this.http.get<any>(this.baseUrl + 'receivers');
   }
 
-  login(username: any, password: any) {
-    const input = new FormData();
-    input.append('username', username);
-    input.append('password', password);
-    return this.http.post<any>(this.baseUrl + 'login', input, this.httpOptions);
+  register(name,address,username,password,mobilenumber,role) 
+  {
+    console.log(name,address,username,password,mobilenumber,role)
+
+    let body = `username=${username}&password=${password}&name=${name}&address=${address}&mobile_no=${mobilenumber}&role=${role} `;
+    return this.http.post<any>(this.baseUrl + 'regs', body, this.httpOptions);
   }
 
-  register() {
-    const input = new FormData();
-    return this.http.post<any>(this.baseUrl + 'login', input, this.httpOptions); ;
+  login(username: any, password: any)
+  {
+    let body = `username=${username}&password=${password}`;
+    return this.http.post<any>(this.baseUrl + 'login', body, this.httpOptions);
   }
 
+  getagentsfordropdown()
+  {
+    return this.http.get<any>(this.baseUrl + 'agents');
+  }
+
+  getreceiversfordropdown()
+  {
+    return this.http.get<any>(this.baseUrl + 'receivers');
+  }
+  
 }

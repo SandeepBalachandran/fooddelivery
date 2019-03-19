@@ -3,7 +3,7 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
 
 
-export interface Food {
+export interface Agent {
   value: string;
   viewValue: string;
 }
@@ -30,7 +30,9 @@ export class AdminComponent implements OnInit {
 
   constructor(private service: ServicesService) { }
 
-  displayedColumns: string[] = ['name', 'useranme', 'role', 'address', 'mobilenumber', 'actions'];
+  displayedColumns: string[] = [
+    'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address',
+    'checked','completed','delivered','actions'];
   ELEMENT_DATA: PeriodicElement[] = [];
   dataSource: any;
 
@@ -39,23 +41,43 @@ export class AdminComponent implements OnInit {
   baseUrl; any;
   incomingData = [];
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Person 1'},
-    {value: 'pizza-1', viewValue: 'Person 2'},
-    {value: 'tacos-2', viewValue: 'Person 3'}
-  ];
-
   ngOnInit() {
     this.loaddata();
+    this.loaddropdownagents();
+    this.loaddropdownreceivers();
   }
 
   loaddata() {
     // this.loading = true;
-    this.service.getagents().subscribe(
+    this.service.getdontations().subscribe(
       data => {
         this.processdata(data);
       }
     );
+
+   
+  }
+
+  loaddropdownagents()
+  {
+    this.service.getagentsfordropdown().subscribe(
+      data=>{
+        console.log(data)
+      }
+    )
+
+  }
+  dropdownagents:any;
+
+  loaddropdownreceivers()
+  {
+    this.service.getreceiversfordropdown().subscribe(
+      data=>{
+        this.dropdownagents=data
+        console.log(data)
+      }
+    )
+
   }
 
   processdata(data: any) {
@@ -69,5 +91,7 @@ export class AdminComponent implements OnInit {
   assignData() {
     this.agentPopup = true;
   }
+
+  agents: Agent[] = [this.dropdownagents];
 }
 

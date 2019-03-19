@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
 
 
   centered = false;
-  disabled = false;
+  disabled = true;
   unbounded = false;
 
   checked = false;
@@ -68,9 +68,14 @@ export class DashboardComponent implements OnInit {
     {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
   ];
+  role:any;
+  name:any;
 
   ngOnInit() {
     this.loaddata();
+    this.role=localStorage.getItem('role_of_this_dude');
+    this.name=localStorage.getItem('name_of_this_dude');
+    console.log(this.role,this.name)
   }
 
   loaddata() {

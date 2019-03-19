@@ -49,10 +49,10 @@ export class ReceiverComponent implements OnInit {
   ngOnInit() {
     this.loaddata();
   }
-
+  receiverid=1;
   loaddata() {
     // this.loading = true;
-    this.service.getagents().subscribe(
+    this.service.getdataforreceiverpage(this.receiverid).subscribe(
       data => {
         this.processdata(data);
       }
