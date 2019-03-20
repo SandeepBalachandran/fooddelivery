@@ -1,31 +1,39 @@
 <div class="main-panel">
   <div class="example-container">
     <mat-form-field>
-      <input matInput placeholder="Event Name" />
+      <input matInput placeholder="Event Name"  [(ngModel)]="eventname"/>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Food Type" />
+      <input matInput placeholder="Event Time"  [(ngModel)]="eventtime"/>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Quantity" />
+      <input matInput placeholder="Food Type"  [(ngModel)]="foodtype"/>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput placeholder="Address"></textarea>
+      <input matInput placeholder="Quantity"  [(ngModel)]="quantity"/>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Donor Name" />
+      <textarea matInput placeholder="Address"  [(ngModel)]="address"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Donor Name" [(ngModel)]="donorname" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Donor Mobile" [(ngModel)]="donormobile" />
     </mat-form-field>
 
 
     <mat-form-field>
-      <textarea matInput placeholder="Donor Address"></textarea>
+      <textarea matInput placeholder="Donor Address"  [(ngModel)]="donoraddress"></textarea>
     </mat-form-field>
 
-    <mat-form-field>
+    <!-- <mat-form-field>
       <mat-select placeholder="Select">
         <mat-option value="option">Option</mat-option>
       </mat-select>
@@ -37,11 +45,11 @@
           {{ food.viewValue }}
         </mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
     <mat-card-actions>
-            <button mat-raised-button (click)="login()" color="primary">Save</button>
-            <button mat-stroked-button color="primary">Reset</button>
+            <button mat-raised-button (click)="savedata()" color="primary">Save</button>
+            <button mat-stroked-button  (click)="reset()" color="primary">Reset</button>
         </mat-card-actions>
   </div>
 </div>

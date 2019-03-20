@@ -9,32 +9,51 @@ import { Router } from "@angular/router";
 export class AppComponent {
 	constructor(private router: Router){}
   title = 'fooddelivery';
+
+  
   goto(clicked:any)
   {
   	switch(clicked)
   	{
-			case 'dashboard':
-  		this.router.navigate(['/dashboard'])
+		case 'dashboard':
+  			this.router.navigate(['/dashboard'])
   		break;
   		case 'provider':
-  		this.router.navigate(['/provider'])
+  			this.router.navigate(['/provider'])
   		break;
 
   		case 'agent':
-  		this.router.navigate(['/agent'])
+  			this.router.navigate(['/agent'])
   		break;
 
   		case 'receiver':
-  		this.router.navigate(['/receiver'])
+  			this.router.navigate(['/receiver'])
   		break;
 
   		case 'auth':
-  		this.router.navigate(['/auth'])
+  			this.router.navigate(['/auth'])
 			break;
 			
-			case 'admin':
-  		this.router.navigate(['/admin'])
+		case 'admin':
+  			this.router.navigate(['/admin'])
+		  break;
+		  
+		case 'logout':
+			localStorage.removeItem('role_of_this_dude')
+			localStorage.removeItem('name_of_this_dude')
+        this.router.navigateByUrl('/auth');
   		break;
   	}
   }
+
+  admin:any;
+  receiver:any;
+  agent:any;
+  
+
+//   this.admin=localStorage.getItem('role_of_this_dude');
+//   this.admin=="admin"?1:0;
+//   this.receiver=localStorage.getItem('role_of_this_dude')=='receiver'?1:0;
+//   this.agent=localStorage.getItem('role_of_this_dude')=='agent'?1:0;
+
 }

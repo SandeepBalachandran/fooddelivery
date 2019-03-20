@@ -35,27 +35,64 @@ mobile:string;
   supername:any;
 
   login() {
-
-    this.service.login(this.username, this.password).subscribe(
-      data => {
-        console.log(data);
-        this.whologgedin=data.role
-        this.supername=data.name
-        console.log(this.whologgedin)
-        localStorage.setItem('role_of_this_dude', this.whologgedin);
-        localStorage.setItem('name_of_this_dude', this.supername);
-        this.router.navigate(['/dashboard'])
-      },
-
-    );
-  }
-  register() {
-    console.log(this.name,this.address,this.username,this.password,this.mobile,this.role)
-    this.service.register(this.name,this.address,this.username,this.password,this.mobile,this.role).subscribe(data => {
-      this.snackBar.open("Registered Succesfully", "Close", {
+    if(this.username=='')
+    {
+      this.snackBar.open("username required", "Close", {
         duration: 10000,
       });
-    });
+
+    }
+
+    else if(this.password=='')
+    {
+      this.snackBar.open("Password required", "Close", {
+        duration: 10000,
+      });
+
+    }
+    else
+    {
+        this.service.login(this.username, this.password).subscribe(
+          data => {
+            console.log(data);
+            this.whologgedin=data.role
+            this.supername=data.name
+            console.log(this.whologgedin)
+            localStorage.setItem('role_of_this_dude', this.whologgedin);
+            localStorage.setItem('name_of_this_dude', this.supername);
+            if(data.role=="admin"){this.router.navigate(['/admin'])}
+            else if(data.role=="receiver"){this.router.navigate(['/receiver'])}
+            else {this.router.navigate(['/agent'])}
+          },
+
+        );
+    }
+  }
+  register() {
+    // console.log(this.name,this.address,this.username,this.password,this.mobile,this.role)
+    if(this.username=='')
+    {
+      this.snackBar.open("username required", "Close", {
+        duration: 10000,
+      });
+
+    }
+
+    else if(this.password=='')
+    {
+      this.snackBar.open("Password required", "Close", {
+        duration: 10000,
+      });
+
+    }
+    else
+    {
+      this.service.register(this.name,this.address,this.username,this.password,this.mobile,this.role).subscribe(data => {
+        this.snackBar.open("Registered Succesfully", "Close", {
+          duration: 10000,
+        });
+      });
+    }
 
   }
 

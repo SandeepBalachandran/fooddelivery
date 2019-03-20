@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
+import {Router} from '@angular/router';
 
 
 export interface Agent {
@@ -28,7 +29,7 @@ export interface PeriodicElement {
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private service: ServicesService) { }
+  constructor(private service: ServicesService,private router: Router) { }
 
   displayedColumns: string[] = [
     'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address',
@@ -40,11 +41,19 @@ export class AdminComponent implements OnInit {
   agentPopup = false;
   baseUrl; any;
   incomingData = [];
+  disabled=true;
 
   ngOnInit() {
-    this.loaddata();
-    this.loaddropdownagents();
-    this.loaddropdownreceivers();
+    if(localStorage.getItem('role_of_this_dude')=="admin")
+    {
+      this.loaddata();
+      this.loaddropdownagents();
+      this.loaddropdownreceivers();
+    }
+    else
+    {
+      this.router.navigate(['/dashboard'])
+    }
   }
 
   loaddata() {

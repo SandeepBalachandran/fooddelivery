@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
+import {Router} from '@angular/router';
 
 
 
@@ -47,7 +48,7 @@ export class AgentComponent implements OnInit {
   color: string;
 
 
-  constructor(private service: ServicesService) { }
+  constructor(private service: ServicesService,private router: Router) { }
 
   ELEMENT_DATA: PeriodicElement[] = [];
   dataSource: any;
@@ -66,7 +67,14 @@ export class AgentComponent implements OnInit {
   name:any;
 
   ngOnInit() {
-    this.loaddata();
+    if(localStorage.getItem('role_of_this_dude')=="agent")
+    {
+      this.loaddata();
+    }
+    else
+    {
+      this.router.navigate(['/dashboard'])
+    }
   }
   agentid=1;
   loaddata() {

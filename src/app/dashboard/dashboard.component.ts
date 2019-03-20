@@ -75,14 +75,21 @@ export class DashboardComponent implements OnInit {
     this.loaddata();
     this.role=localStorage.getItem('role_of_this_dude');
     this.name=localStorage.getItem('name_of_this_dude');
-    console.log(this.role,this.name)
+    // console.log(this.role,this.name)
   }
+  checkeddata:any;
+  completeddata:any;
+  delivereddata:any;
 
   loaddata() {
     // this.loading = true;
     this.service.getdontations().subscribe(
       data => {
         this.processdata(data);
+        this.checkeddata=data.checked?false:true;
+        console.log(this.checkeddata)
+        this.completeddata=data.complete?true:false;
+        this.delivereddata=data.delivery?true:false;
       }
     );
   }
@@ -91,7 +98,7 @@ export class DashboardComponent implements OnInit {
     this.incomingData = data;
     this.ELEMENT_DATA = data;
     this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
-    console.log(this.ELEMENT_DATA);
+    // console.log(this.ELEMENT_DATA);
   }
 
   assignData() {

@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
 import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 
 export interface Food {
@@ -29,7 +30,7 @@ export interface PeriodicElement {
 })
 export class ReceiverComponent implements OnInit {
 
-  constructor(private service: ServicesService,private snackBar: MatSnackBar) { }
+  constructor(private service: ServicesService,private snackBar: MatSnackBar,private router: Router) { }
 
   displayedColumns: string[] = ['name', 'useranme', 'role', 'address', 'mobilenumber', 'actions'];
   ELEMENT_DATA: PeriodicElement[] = [];
@@ -47,7 +48,14 @@ export class ReceiverComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.loaddata();
+    if(localStorage.getItem('role_of_this_dude')=="receiver")
+    {
+      this.loaddata();
+    }
+    else
+    {
+      this.router.navigate(['/dashboard'])
+    }
   }
   receiverid=1;
   loaddata() {
