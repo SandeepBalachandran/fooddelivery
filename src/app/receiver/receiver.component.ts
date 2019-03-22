@@ -48,14 +48,14 @@ export class ReceiverComponent implements OnInit {
   ];
 
   ngOnInit() {
-    if(localStorage.getItem('role_of_this_dude')=="receiver")
-    {
+    // if(localStorage.getItem('role_of_this_dude')=="receiver")
+    // {
       this.loaddata();
-    }
-    else
-    {
-      this.router.navigate(['/dashboard'])
-    }
+    // }
+    // else
+    // {
+    //   this.router.navigate(['/dashboard'])
+    // }
   }
   receiverid=1;
   loaddata() {

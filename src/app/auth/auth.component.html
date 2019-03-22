@@ -40,6 +40,7 @@
                             <mat-form-field class="example-full-width">
                                 <input matInput placeholder="Password" [(ngModel)]="password" type="text"
                                     name="password" required>
+                                    
                             </mat-form-field>
                         </td>
                     </tr>
@@ -47,7 +48,8 @@
                     <tr>
                         <td>
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Mobile Number" [(ngModel)]="mobile" type="phone"
+                                    <span matPrefix>+91 &nbsp;</span>
+                                <input matInput placeholder="Mobile Number" [(ngModel)]="mobile" type="number"
                                     name="password" required>
                             </mat-form-field>
                         </td>
@@ -55,10 +57,19 @@
 
                     <tr>
                         <td>
-                            <mat-form-field class="example-full-width">
+                            <!-- <mat-form-field class="example-full-width">
                                 <input matInput placeholder="Role" [(ngModel)]="role" type="role"
                                     name="role" required>
-                            </mat-form-field>
+                            </mat-form-field> -->
+
+                            <mat-form-field>
+                                <mat-label>Select Role</mat-label>
+                                <mat-select (change)="selected($event)">
+                                  <mat-option *ngFor="let role of roles" [value]="role.value" (click)="getInnerText(role.value)">
+                                    {{role.viewValue}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
                         </td>
                     </tr>
 
@@ -86,14 +97,14 @@
                     <tr>
                         <td>
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                                <input matInput placeholder="Username" [(ngModel)]="username_login" name="username" required>
                             </mat-form-field>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <mat-form-field class="example-full-width">
-                                <input matInput placeholder="Password" [(ngModel)]="password" type="password"
+                                <input matInput placeholder="Password" [(ngModel)]="password_login" type="password"
                                     name="password" required>
                             </mat-form-field>
                         </td>

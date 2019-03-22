@@ -34,20 +34,20 @@ export class ServicesService {
     return this.http.post<any>(this.baseUrl + 'receivers_donation',body,this.httpOptions);
   }
 
-  getagents() 
-  {
-    return this.http.get<any>(this.baseUrl + 'agents');
-  }
+  // getagents() 
+  // {
+  //   return this.http.get<any>(this.baseUrl + 'agents');
+  // }
 
   getdontations() 
   {
     return this.http.get<any>(this.baseUrl + 'alldonations');
   }
 
-  getreceivers() 
-  {
-    return this.http.get<any>(this.baseUrl + 'receivers');
-  }
+  // getreceivers() 
+  // {
+  //   return this.http.get<any>(this.baseUrl + 'receivers');
+  // }
 
   register(name,address,username,password,mobilenumber,role) 
   {
@@ -77,6 +77,19 @@ export class ServicesService {
   {
     let body = `event_name=${eventname}&food_type=${foodtype}&event_time=${eventtime}&address=${address}&quantity=${quantity}&donor_name=${donorname}&donor_address=${donoraddress}&donar_mobile=${donormobile}&agent=${agent}&receiver=${receiver}&checked=${checked}&pickup=${pickup}&delivery=${delivery}&complete=${complete}`;
     return this.http.post<any>(this.baseUrl + 'add_donations', body, this.httpOptions);
+  }
+
+  assignagent(agent)
+  {
+    let body = `agent=${agent}`;
+    return this.http.post<any>(this.baseUrl + 'assign_agent', body, this.httpOptions);
+
+  }
+  assignreceiver(receiver)
+  {
+    let body = `receiver=${receiver}`;
+    return this.http.post<any>(this.baseUrl + 'assign_receiver', body, this.httpOptions);
+
   }
   
 }

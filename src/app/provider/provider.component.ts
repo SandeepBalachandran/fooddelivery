@@ -73,7 +73,7 @@ export class ProviderComponent implements OnInit {
   }
   reset()
   {
-    this.donorname='';this.eventname='';this.foodtype='';this.eventtime='';this.quantity='';this.address='';this.donoraddress='';this.donormobile
+    this.donorname='';this.eventname='';this.foodtype='';this.eventtime='';this.quantity='';this.address='';this.donoraddress='';this.donormobile=''
   }
 
 }

@@ -44,16 +44,16 @@ export class AdminComponent implements OnInit {
   disabled=true;
 
   ngOnInit() {
-    if(localStorage.getItem('role_of_this_dude')=="admin")
-    {
+    // if(localStorage.getItem('role_of_this_dude')=="admin")
+    // {
       this.loaddata();
       this.loaddropdownagents();
       this.loaddropdownreceivers();
-    }
-    else
-    {
-      this.router.navigate(['/dashboard'])
-    }
+    // }
+    // else
+    // {
+    //   this.router.navigate(['/dashboard'])
+    // }
   }
 
   loaddata() {
@@ -99,6 +99,24 @@ export class AdminComponent implements OnInit {
 
   assignData() {
     this.agentPopup = true;
+  }
+  agent:any;
+  receiver:any;
+  assign()
+  {
+    this.service.assignagent(this.agent).subscribe(
+      data=>{
+       
+        console.log(data)
+      }
+    )
+
+    this.service.assignreceiver(this.receiver).subscribe(
+      data=>{
+       
+        console.log(data)
+      }
+    )
   }
 
   agents: Agent[] = [this.dropdownagents];
