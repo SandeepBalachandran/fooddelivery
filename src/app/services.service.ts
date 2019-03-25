@@ -91,5 +91,30 @@ export class ServicesService {
     return this.http.post<any>(this.baseUrl + 'assign_receiver', body, this.httpOptions);
 
   }
+
+  completedonation(donationid)
+  {
+    let body = `value=${donationid}`;
+    return this.http.post<any>(this.baseUrl + 'donation_status_completion', body, this.httpOptions);
+ 
+  }
+  agentdonationchecked(donationid)
+  {
+    let body = `value=${donationid}`;
+    return this.http.post<any>(this.baseUrl + 'donations_status_checked', body, this.httpOptions);
+
+  }
+  agentdonationpickup(donationid)
+  {
+    let body = `value=${donationid}`;
+    return this.http.post<any>(this.baseUrl + 'donations_status_pickup', body, this.httpOptions);
+    
+  }
+  agentdonationdelivery(donationid)
+  {
+    let body = `value=${donationid}`;
+    return this.http.post<any>(this.baseUrl + 'donations_status_delivery', body, this.httpOptions);
+    
+  }
   
 }

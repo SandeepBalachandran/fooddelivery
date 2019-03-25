@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 
 
@@ -27,14 +28,15 @@ export interface Tile {
   templateUrl: './agent.component.html',
   styleUrls: ['./agent.component.css']
 })
-export class AgentComponent implements OnInit {
+export class AgentComponent implements OnInit 
+{
   displayedColumns: string[] = [
     'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address',
     'checked','completed','delivered'];
 
 
   centered = false;
-  disabled = true;
+  disabled = false;
   unbounded = false;
 
   checked = false;
@@ -48,7 +50,7 @@ export class AgentComponent implements OnInit {
   color: string;
 
 
-  constructor(private service: ServicesService,private router: Router) { }
+  constructor(private service: ServicesService,private router: Router,private snackBar: MatSnackBar ) { }
 
   ELEMENT_DATA: PeriodicElement[] = [];
   dataSource: any;
@@ -77,9 +79,10 @@ export class AgentComponent implements OnInit {
     // }
   }
   agentid=1;
-  loaddata() {
+  loaddata() 
+  {
     // this.loading = true;
-  this.service.getdataforagentpage(this.agentid).subscribe(
+    this.service.getdataforagentpage(this.agentid).subscribe(
       data => {
         this.processdata(data);
         console.log(data)
@@ -96,6 +99,56 @@ export class AgentComponent implements OnInit {
 
   assignData() {
     this.agentPopup = true;
+  }
+  donationid:any;
+
+  agentdonationchecked(donationid)
+  {
+    this.service.agentdonationchecked(donationid).subscribe(
+      data => {
+        if(data)
+        {
+          this.snackBar.open("Checked Succesfully", "Close", {
+            duration: 2000,
+          });
+
+        }
+       
+      }
+    );
+
+  }
+  agentdonationpickup(donationid)
+  {
+    this.service.agentdonationpickup(donationid).subscribe(
+      data => {
+        if(data)
+        {
+          this.snackBar.open("Pickedup Succesfully", "Close", {
+            duration: 2000,
+          });
+          
+        }
+        
+      }
+    );
+
+  }
+  agentdonationdelivery(donationid)
+  {
+    this.service.agentdonationdelivery(donationid).subscribe(
+      data => {
+        if(data)
+        {
+          this.snackBar.open("donated Succesfully", "Close", {
+            duration: 2000,
+          });
+          
+        }
+        
+      }
+    );
+
   }
  
 }
