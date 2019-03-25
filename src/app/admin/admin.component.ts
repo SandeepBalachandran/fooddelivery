@@ -29,11 +29,11 @@ export interface PeriodicElement {
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private service: ServicesService,private router: Router) { }
+  constructor(private service: ServicesService, private router: Router) { }
 
   displayedColumns: string[] = [
-    'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address',
-    'checked','completed','delivered','actions'];
+    'event_name', 'food_type', 'quantity', 'agent', 'receiver', 'address', 'donor_name', 'donor_address',
+    'checked', 'completed', 'delivered', 'actions'];
   ELEMENT_DATA: PeriodicElement[] = [];
   dataSource: any;
 
@@ -41,7 +41,15 @@ export class AdminComponent implements OnInit {
   agentPopup = false;
   baseUrl; any;
   incomingData = [];
-  disabled=true;
+  disabled = true;
+  dropdownagents: any;
+  dropdownreciever: any;
+  agentselected: any;
+  recieverselected: any;
+  agent: any;
+  receiver: any;
+
+  agents: Agent[] = [this.dropdownagents];
 
   ngOnInit() {
     // if(localStorage.getItem('role_of_this_dude')=="admin")
@@ -64,28 +72,26 @@ export class AdminComponent implements OnInit {
       }
     );
 
-   
+
   }
 
-  loaddropdownagents()
-  {
+  loaddropdownagents() {
     this.service.getagentsfordropdown().subscribe(
-      data=>{
-        console.log(data)
+      data => {
+        this.dropdownagents = data;
+        console.log(data);
       }
-    )
+    );
 
   }
-  dropdownagents:any;
 
-  loaddropdownreceivers()
-  {
+  loaddropdownreceivers() {
     this.service.getreceiversfordropdown().subscribe(
-      data=>{
-        this.dropdownagents=data
-        console.log(data)
+      data => {
+        this.dropdownreciever = data;
+        console.log(data);
       }
-    )
+    );
 
   }
 
@@ -100,25 +106,22 @@ export class AdminComponent implements OnInit {
   assignData() {
     this.agentPopup = true;
   }
-  agent:any;
-  receiver:any;
-  assign()
-  {
-    this.service.assignagent(this.agent).subscribe(
-      data=>{
-       
-        console.log(data)
-      }
-    )
+  assign() {
+    console.log(this.agentselected, this.recieverselected);
+    if (this.agentselected != undefined && this.recieverselected != undefined) {
+      this.service.assignagent(this.agentselected).subscribe(
+        data => {
+          console.log(data);
+        }
+      );
 
-    this.service.assignreceiver(this.receiver).subscribe(
-      data=>{
-       
-        console.log(data)
-      }
-    )
+      this.service.assignreceiver(this.recieverselected).subscribe(
+        data => {
+          console.log(data);
+        }
+      );
+    }
+
   }
-
-  agents: Agent[] = [this.dropdownagents];
 }
 
