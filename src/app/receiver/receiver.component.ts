@@ -85,5 +85,6 @@ export class ReceiverComponent implements OnInit {
   assignData() {
     this.agentPopup = true;
   }
+
 }
 

@@ -75,9 +75,19 @@ roles: Role[] = [
               console.log(this.whologgedin)
               localStorage.setItem('role_of_this_dude', this.whologgedin);
               localStorage.setItem('name_of_this_dude', this.supername);
-              if(data.role=="admin"){this.router.navigate(['/admin'])}
-              else if(data.role=="receiver"){this.router.navigate(['/receiver'])}
-              else {this.router.navigate(['/agent'])}
+              // if(data.role=="admin")
+              // {
+              //   this.router.navigate(['/admin'])
+              // }
+              // else if(data.role=="receiver")
+              // {
+              //   this.router.navigate(['/receiver'])
+              // }
+              // else 
+              // {
+              //   this.router.navigate(['/agent'])
+              // }
+              this.router.navigate(['/dashboard'])
             }
             else
             {
@@ -86,6 +96,10 @@ roles: Role[] = [
               });
 
             }
+             
+             
+            
+           
           },
 
         );

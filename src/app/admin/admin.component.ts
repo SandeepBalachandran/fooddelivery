@@ -5,8 +5,13 @@ import {Router} from '@angular/router';
 
 
 export interface Agent {
-  value: string;
-  viewValue: string;
+  address: string;
+  id:any;
+  mobile_no:any;
+  name:any;
+  password:any;
+  role:any;
+  username:any;
 }
 export interface PeriodicElement {
   name: string;
@@ -100,7 +105,7 @@ export class AdminComponent implements OnInit {
     this.ELEMENT_DATA = data;
     this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
     this.dataSource.paginator = this.paginator;
-    console.log(this.ELEMENT_DATA);
+    // console.log(this.ELEMENT_DATA);
   }
 
   assignData() {

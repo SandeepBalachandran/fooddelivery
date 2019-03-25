@@ -2,56 +2,53 @@ import { Component } from '@angular/core';
 import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	constructor(private router: Router){}
-  title = 'fooddelivery';
+	constructor(private router: Router) { }
+	title = 'fooddelivery';
 
-  
-  goto(clicked:any)
-  {
-  	switch(clicked)
-  	{
-		case 'dashboard':
-  			this.router.navigate(['/dashboard'])
-  		break;
-  		case 'provider':
-  			this.router.navigate(['/provider'])
-  		break;
+	admin: any;
+	receiver: any;
+	agent: any;
+	role = localStorage.getItem('role_of_this_dude')
 
-  		case 'agent':
-  			this.router.navigate(['/agent'])
-  		break;
+	goto(clicked: any) {
+		switch (clicked) {
+			case 'dashboard':
+				this.router.navigate(['/dashboard'])
+				break;
+			case 'provider':
+				this.router.navigate(['/provider'])
+				break;
 
-  		case 'receiver':
-  			this.router.navigate(['/receiver'])
-  		break;
+			case 'agent':
+				this.router.navigate(['/agent'])
+				break;
 
-  		case 'auth':
-  			this.router.navigate(['/auth'])
-			break;
-			
-		case 'admin':
-  			this.router.navigate(['/admin'])
-		  break;
-		  
-		case 'logout':
-			localStorage.removeItem('role_of_this_dude')
-			localStorage.removeItem('name_of_this_dude')
-        this.router.navigateByUrl('/auth');
-  		break;
-  	}
-  }
+			case 'receiver':
+				this.router.navigate(['/receiver'])
+				break;
 
-  admin:any;
-  receiver:any;
-  agent:any;
-  
+			case 'auth':
+				this.router.navigate(['/auth'])
+				break;
 
-//   this.admin=localStorage.getItem('role_of_this_dude');
+			case 'admin':
+				this.router.navigate(['/admin'])
+				break;
+
+			case 'logout':
+				localStorage.removeItem('role_of_this_dude')
+				localStorage.removeItem('name_of_this_dude')
+				this.router.navigateByUrl('/auth');
+				break;
+		}
+	}
+
+	
 //   this.admin=="admin"?1:0;
 //   this.receiver=localStorage.getItem('role_of_this_dude')=='receiver'?1:0;
 //   this.agent=localStorage.getItem('role_of_this_dude')=='agent'?1:0;
