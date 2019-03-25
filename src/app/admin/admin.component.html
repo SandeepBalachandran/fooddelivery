@@ -101,19 +101,19 @@
     <div class="content">
         <mat-form-field>
             <mat-select placeholder="Assign to agent">
-              <mat-option *ngFor="let agent of agents" [value]="agent.value">
-                {{agent.viewValue}}
+              <mat-option *ngFor="let agent of agents" [value]="agent.id">
+                {{agent.username}}
               </mat-option>
             </mat-select>
           </mat-form-field>
 
-          <mat-form-field>
+          <!-- <mat-form-field>
             <mat-select placeholder="Assign Receiver">
-              <mat-option *ngFor="let agent of agents" [value]="agent.value">
-                {{agent.viewValue}}
+              <mat-option *ngFor="let agent of agents" [value]="agent.name">
+                {{agent?.username}}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+          </mat-form-field> -->
           <button mat-raised-button color="primary">Save</button>
           <button  (click)="agentPopup=false" mat-stroked-button color="primary">Close</button>
     </div>

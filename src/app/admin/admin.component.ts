@@ -5,8 +5,13 @@ import {Router} from '@angular/router';
 
 
 export interface Agent {
-  value: string;
-  viewValue: string;
+  address: string;
+  id:any;
+  mobile_no:any;
+  name:any;
+  password:any;
+  role:any;
+  username:any;
 }
 export interface PeriodicElement {
   name: string;
@@ -67,23 +72,28 @@ export class AdminComponent implements OnInit {
    
   }
 
+  dropdownagents:any;
+  dropdownreceivers:any;
+
   loaddropdownagents()
   {
     this.service.getagentsfordropdown().subscribe(
       data=>{
-        console.log(data)
+        // console.log(data)
+        this.dropdownagents=data
+        console.log(this.dropdownagents)
       }
     )
 
   }
-  dropdownagents:any;
+
 
   loaddropdownreceivers()
   {
     this.service.getreceiversfordropdown().subscribe(
       data=>{
-        this.dropdownagents=data
-        console.log(data)
+        this.dropdownreceivers=data 
+        console.log(this.dropdownreceivers)
       }
     )
 
@@ -94,7 +104,7 @@ export class AdminComponent implements OnInit {
     this.ELEMENT_DATA = data;
     this.dataSource = new MatTableDataSource<PeriodicElement>(this.ELEMENT_DATA);
     this.dataSource.paginator = this.paginator;
-    console.log(this.ELEMENT_DATA);
+    // console.log(this.ELEMENT_DATA);
   }
 
   assignData() {
@@ -107,18 +117,25 @@ export class AdminComponent implements OnInit {
     this.service.assignagent(this.agent).subscribe(
       data=>{
        
-        console.log(data)
+        // console.log(data)
       }
     )
 
     this.service.assignreceiver(this.receiver).subscribe(
       data=>{
        
-        console.log(data)
+        // console.log(data)
       }
     )
   }
 
   agents: Agent[] = [this.dropdownagents];
+
+
+  // agents: Agent[] = [
+  //   {value: 'steak-0', viewValue: 'Steak'},
+  //   {value: 'pizza-1', viewValue: 'Pizza'},
+  //   {value: 'tacos-2', viewValue: 'Tacos'}
+  // ];
 }
 
