@@ -5,32 +5,42 @@
         <table mat-table [dataSource]="dataSource">
 
           <!-- Position Column symbol-->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          <ng-container matColumnDef="donorname">
+            <th mat-header-cell *matHeaderCellDef> Donor Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.donor_name}} </td>
           </ng-container>
 
           <!-- Name Column -->
-          <ng-container matColumnDef="useranme">
-            <th mat-header-cell *matHeaderCellDef> Username </th>
-            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+          <ng-container matColumnDef="donoraddress">
+            <th mat-header-cell *matHeaderCellDef> Donor Address </th>
+            <td mat-cell *matCellDef="let element"> {{element.donor_address}} </td>
           </ng-container>
 
           <!-- Weight Column -->
-          <ng-container matColumnDef="role">
-            <th mat-header-cell *matHeaderCellDef> Role </th>
-            <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+          <ng-container matColumnDef="donormobile">
+            <th mat-header-cell *matHeaderCellDef> Donor Mobile Number </th>
+            <td mat-cell *matCellDef="let element"> {{element.donar_mobile}} </td>
           </ng-container>
 
           <!-- Symbol Column -->
-          <ng-container matColumnDef="address">
-            <th mat-header-cell *matHeaderCellDef> Address </th>
-            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+          <ng-container matColumnDef="foodtype">
+            <th mat-header-cell *matHeaderCellDef> Food Type </th>
+            <td mat-cell *matCellDef="let element"> {{element.food_type}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="mobilenumber">
-            <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
-            <td mat-cell *matCellDef="let element"> {{element.mobile_no}} </td>
+          <ng-container matColumnDef="eventname">
+            <th mat-header-cell *matHeaderCellDef> Event Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.event_name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="eventtime">
+            <th mat-header-cell *matHeaderCellDef> Event Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.event_time}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
           </ng-container>
 
 
@@ -38,7 +48,7 @@
           <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions</th>
               <td mat-cell *matCellDef="let element">
-              	<button class="btn btn-success" (click)="openSnackBar(); assignData();">Completed</button>
+              	<button class="btn btn-success" (click)="assignData(element.id)">Completed</button>
               </td>
             </ng-container>
 

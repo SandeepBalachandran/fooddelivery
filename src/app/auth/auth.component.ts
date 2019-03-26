@@ -34,7 +34,7 @@ password_login:string;
 roles: Role[] = [
   {value: 'agent', viewValue: 'agent'},
   {value: 'admin', viewValue: 'admin'},
-  {value: 'receiver', viewValue: 'receiver'}
+  {value: 'receivers', viewValue: 'receivers'}
 ];
 
   ngOnInit() {

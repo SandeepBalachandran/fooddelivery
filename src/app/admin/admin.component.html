@@ -50,27 +50,30 @@
 				<td mat-cell *matCellDef="let element"> {{element.donor_address}} </td>
       </ng-container>
 
+			<ng-container matColumnDef="checked">
+					<th mat-header-cell *matHeaderCellDef> Checked </th>
+					<td mat-cell *matCellDef="let element">
+						<mat-checkbox class="example-margin" [disabled]="disabled" [checked]="element.checked"></mat-checkbox>
+					</td>
+				</ng-container>
+
+				<ng-container matColumnDef="delivered">
+						<th mat-header-cell *matHeaderCellDef> Picked Up </th>
+						<td mat-cell *matCellDef="let element">
+							<mat-checkbox class="example-margin" [disabled]="disabled" [checked]="element.pickup"></mat-checkbox>
+						</td>
+					</ng-container>
 
       <ng-container matColumnDef="completed">
-				<th mat-header-cell *matHeaderCellDef> Completed </th>
+				<th mat-header-cell *matHeaderCellDef> Delivered </th>
 				<td mat-cell *matCellDef="let element">
-					<mat-checkbox class="example-margin" [disabled]="disabled" [checked]="completed" ></mat-checkbox>
+					<mat-checkbox class="example-margin" [disabled]="disabled" [checked]="element.delivery" ></mat-checkbox>
 				</td>
 			</ng-container>
 
-			<ng-container matColumnDef="checked">
-				<th mat-header-cell *matHeaderCellDef> Checked </th>
-				<td mat-cell *matCellDef="let element">
-					<mat-checkbox class="example-margin" [disabled]="disabled" [checked]="checked"></mat-checkbox>
-				</td>
-			</ng-container>
+		
 
-			<ng-container matColumnDef="delivered">
-				<th mat-header-cell *matHeaderCellDef> Delievered </th>
-				<td mat-cell *matCellDef="let element">
-					<mat-checkbox class="example-margin" [disabled]="disabled" [checked]="delivered"></mat-checkbox>
-				</td>
-			</ng-container>
+		
 
 
 
@@ -78,7 +81,7 @@
 
           <ng-container matColumnDef="actions">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions</th>
-              <td mat-cell *matCellDef="let element"> <button class="btn btn-success" (click)="assignData()">Assign</button></td>
+              <td mat-cell *matCellDef="let element"> <button class="btn btn-success" (click)="assignData(element.id)">Assign</button></td>
             </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

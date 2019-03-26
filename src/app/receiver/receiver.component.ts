@@ -32,7 +32,7 @@ export class ReceiverComponent implements OnInit {
 
   constructor(private service: ServicesService,private snackBar: MatSnackBar,private router: Router) { }
 
-  displayedColumns: string[] = ['name', 'useranme', 'role', 'address', 'mobilenumber', 'actions'];
+  displayedColumns: string[] = ['donorname', 'donoraddress', 'donormobile', 'foodtype', 'eventname','eventtime','quantity', 'actions'];
   ELEMENT_DATA: PeriodicElement[] = [];
   dataSource: any;
 
@@ -41,11 +41,6 @@ export class ReceiverComponent implements OnInit {
   baseUrl; any;
   incomingData = [];
 
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Person 1'},
-    {value: 'pizza-1', viewValue: 'Person 2'},
-    {value: 'tacos-2', viewValue: 'Person 3'}
-  ];
 
   ngOnInit() {
     // if(localStorage.getItem('role_of_this_dude')=="receiver")
@@ -67,13 +62,6 @@ export class ReceiverComponent implements OnInit {
     );
   }
 
-
-   openSnackBar() {
-    this.snackBar.open("Process Completed", "Close", {
-      duration: 10000,
-    });
-  }
-
   processdata(data: any) {
     this.incomingData = data;
     this.ELEMENT_DATA = data;
@@ -81,9 +69,21 @@ export class ReceiverComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     console.log(this.ELEMENT_DATA);
   }
+  donationid:any
+  value=1;
 
-  assignData() {
-    this.agentPopup = true;
+  assignData(donationid) 
+  {
+    console.log(donationid,this.value)
+    this.service.completedonation(donationid,this.value).subscribe(data => 
+      {
+        this.snackBar.open("Process Completed", "Close", {
+          duration: 10000,
+        });
+
+      }
+    );
+
   }
 
 }

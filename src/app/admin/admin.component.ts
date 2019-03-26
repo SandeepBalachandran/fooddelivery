@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
 import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 
 export interface Agent {
@@ -34,7 +35,7 @@ export interface PeriodicElement {
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private service: ServicesService, private router: Router) { }
+  constructor(private service: ServicesService, private router: Router,private snackBar: MatSnackBar) { }
 
   displayedColumns: string[] = [
     'event_name', 'food_type', 'quantity', 'agent', 'receiver', 'address', 'donor_name', 'donor_address',
@@ -53,6 +54,7 @@ export class AdminComponent implements OnInit {
   recieverselected: any;
   agent: any;
   receiver: any;
+  donationid:any;
 
   agents: Agent[] = [this.dropdownagents];
 
@@ -74,13 +76,15 @@ export class AdminComponent implements OnInit {
     this.service.getdontations().subscribe(
       data => {
         this.processdata(data);
+        // console.log(data.id )
       }
     );
 
 
   }
 
-  loaddropdownagents() {
+  loaddropdownagents() 
+  {
     this.service.getagentsfordropdown().subscribe(
       data => {
         this.dropdownagents = data;
@@ -90,11 +94,13 @@ export class AdminComponent implements OnInit {
 
   }
 
-  loaddropdownreceivers() {
+  loaddropdownreceivers() 
+  {
     this.service.getreceiversfordropdown().subscribe(
       data => {
         this.dropdownreciever = data;
         console.log(data);
+        
       }
     );
 
@@ -108,21 +114,27 @@ export class AdminComponent implements OnInit {
     // console.log(this.ELEMENT_DATA);
   }
 
-  assignData() {
+  assignData(donation) {
     this.agentPopup = true;
+    this.donationid=donation
+    console.log(this.donationid)
   }
   assign() {
     console.log(this.agentselected, this.recieverselected);
-    if (this.agentselected != undefined && this.recieverselected != undefined) {
-      this.service.assignagent(this.agentselected).subscribe(
+    if (this.agentselected != undefined && this.recieverselected != undefined) 
+    {
+      this.service.assignagent(this.agentselected,this.donationid).subscribe(
         data => {
-          console.log(data);
+          console.log(data,this.agentselected);
+          this.snackBar.open("success", "Close", {
+            duration: 2000,
+          });
         }
-      );
+      ); 
 
-      this.service.assignreceiver(this.recieverselected).subscribe(
+      this.service.assignreceiver(this.recieverselected,this.donationid).subscribe(
         data => {
-          console.log(data);
+          console.log(data,this.recieverselected);
         }
       );
     }

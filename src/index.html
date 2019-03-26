@@ -17,7 +17,96 @@
 </head>
 
 <body>
-  <app-root>May the force be with you!</app-root>
+  <app-root>
+    <ul class="loader">
+      <li class="square ad-0   bg-g-orange"></li>
+      <li class="square ad-100 bg-g-green"></li>
+      <li class="square ad-200 bg-g-red"></li>
+      <li class="square ad-300 bg-g-blue"></li>
+      <li class="square ad-400 bg-g-yellow"></li>
+    </ul>
+    <style>
+      * { /*очистка*/
+  margin: 0px;
+  padding: 0px;
+}
+
+/*выбраны все UL отключено стандартное оформление списка*/
+.loader{
+  list-style: none;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+@keyframes changeTop {
+  0% {
+    transform: translateY(-100px) rotate(270deg);
+  } 
+  100% {
+    transform: translateY(+100px);
+  }
+}
+
+.square {
+  animation: changeTop 1s infinite alternate;
+}
+
+/*Задержки старта анимаций*/
+.ad-0 {
+  animation-delay: 0ms; 
+}
+
+.ad-100 {
+  animation-delay: 100ms; 
+}
+
+.ad-200 {
+  animation-delay: 200ms; 
+}
+
+.ad-300 {
+  animation-delay: 300ms; 
+}
+
+.ad-400 {
+  animation-delay: 400ms; 
+}
+
+/*заливки блоков*/
+.bg-g-orange {
+  background:  orange;
+}
+  
+.bg-g-green {
+  background: lightgreen;
+}
+  
+.bg-g-red{
+  background:  red;
+}
+  
+.bg-g-blue{
+  background:  blue;
+}
+
+.bg-g-yellow{
+  background:  yellow;
+}
+    </style>
+  </app-root>
 </body>
 
 </html>

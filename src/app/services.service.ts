@@ -9,7 +9,8 @@ import { map, catchError, tap } from 'rxjs/operators';
 
 export class ServicesService {
 
-  baseUrl = 'http://ec2-18-191-120-45.us-east-2.compute.amazonaws.com:3804/';
+  // baseUrl = 'http://ec2-18-191-120-45.us-east-2.compute.amazonaws.com:3804/';
+  baseUrl='http://ec2-18-221-98-127.us-east-2.compute.amazonaws.com:3804/';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -79,42 +80,54 @@ export class ServicesService {
     return this.http.post<any>(this.baseUrl + 'add_donations', body, this.httpOptions);
   }
 
-  assignagent(agent)
+  assignagent(agent,donationid)
   {
-    let body = `agent=${agent}`;
+    let body = `id=${agent}&value=${donationid}`;
     return this.http.post<any>(this.baseUrl + 'assign_agent', body, this.httpOptions);
 
   }
-  assignreceiver(receiver)
+  assignreceiver(receiver,donationid)
   {
-    let body = `receiver=${receiver}`;
+    let body = `id=${receiver}&value=${donationid}`;
     return this.http.post<any>(this.baseUrl + 'assign_receiver', body, this.httpOptions);
 
   }
 
-  completedonation(donationid)
+  completedonation(donationid,value)
   {
-    let body = `value=${donationid}`;
+    let body = `id=${donationid}&value=${value}`;
     return this.http.post<any>(this.baseUrl + 'donation_status_completion', body, this.httpOptions);
  
   }
-  agentdonationchecked(donationid)
+  agentdonationchecked(donationid,value)
   {
-    let body = `value=${donationid}`;
+    let body = `id=${donationid}&value=${value}`;
     return this.http.post<any>(this.baseUrl + 'donations_status_checked', body, this.httpOptions);
 
   }
-  agentdonationpickup(donationid)
+  agentdonationpickup(donationid,value)
   {
-    let body = `value=${donationid}`;
+    let body = `id=${donationid}&value=${value}`;
     return this.http.post<any>(this.baseUrl + 'donations_status_pickup', body, this.httpOptions);
     
   }
-  agentdonationdelivery(donationid)
+  agentdonationdelivery(donationid,value)
   {
-    let body = `value=${donationid}`;
+    let body = `id=${donationid}&value=${value}`;
     return this.http.post<any>(this.baseUrl + 'donations_status_delivery', body, this.httpOptions);
     
+  }
+
+  addimage(imagename,imagedata,eventname)
+  {
+    let body = `image_name=${imagename}&image_data=${imagedata}&event_name=${eventname}`;
+    return this.http.post<any>(this.baseUrl + 'add_image', body, this.httpOptions);
+
+  }
+
+  getimage()
+  {
+    return this.http.get<any>(this.baseUrl + 'images');
   }
   
 }

@@ -101,10 +101,12 @@ export class AgentComponent implements OnInit
     this.agentPopup = true;
   }
   donationid:any;
+  value=1;
 
   agentdonationchecked(donationid)
   {
-    this.service.agentdonationchecked(donationid).subscribe(
+    // this.checked=true
+    this.service.agentdonationchecked(donationid,this.value).subscribe(
       data => {
         if(data)
         {
@@ -120,7 +122,7 @@ export class AgentComponent implements OnInit
   }
   agentdonationpickup(donationid)
   {
-    this.service.agentdonationpickup(donationid).subscribe(
+    this.service.agentdonationpickup(donationid,this.value).subscribe(
       data => {
         if(data)
         {
@@ -136,11 +138,11 @@ export class AgentComponent implements OnInit
   }
   agentdonationdelivery(donationid)
   {
-    this.service.agentdonationdelivery(donationid).subscribe(
+    this.service.agentdonationdelivery(donationid,this.value).subscribe(
       data => {
         if(data)
         {
-          this.snackBar.open("donated Succesfully", "Close", {
+          this.snackBar.open("Donated Succesfully", "Close", {
             duration: 2000,
           });
           
