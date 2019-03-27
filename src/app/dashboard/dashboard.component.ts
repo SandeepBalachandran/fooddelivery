@@ -75,6 +75,7 @@ export class DashboardComponent implements OnInit {
     this.loaddata();
     this.role=localStorage.getItem('role_of_this_dude');
     this.name=localStorage.getItem('name_of_this_dude');
+    this.getimage();
     // console.log(this.role,this.name)
   }
   checkeddata:any;
@@ -103,6 +104,15 @@ export class DashboardComponent implements OnInit {
 
   assignData() {
     this.agentPopup = true;
+  }
+  getimage()
+  {
+     this.service.getimage().subscribe(
+      data => {
+       
+      }
+    );
+
   }
  
 }

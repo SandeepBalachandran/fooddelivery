@@ -92,7 +92,7 @@
       </div>
 		</div>
 
-		<input class="ng-hide" id="input-file-id" multiple type="file" />
+		<input class="ng-hide custom-file-input" id="input-file-id" multiple type="file" (change)="onSelect($event)" />
 			<label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
 
 

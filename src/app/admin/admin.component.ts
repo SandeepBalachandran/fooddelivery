@@ -140,5 +140,45 @@ export class AdminComponent implements OnInit {
     }
 
   }
-}
+  selectedfile:any;
+  database64:any;
+  imagename="imagename";
+  eventname="newevent";
+  onSelect(event)
+  {
+    if (event.target.files && event.target.files[0]) 
+    {
+      this.selectedfile = event.target.files[0];
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      // read file as data url
+      reader.onload = (event: any) => 
+      {
+        // called once readAsDataURL is completed
+        this.database64 = event.target.result;
+        // console.log(this.url)
+        console.log(this.database64)
 
+        this.service.addimage(this.selectedfile,this.imagename,this.eventname)
+        .subscribe(data => 
+          {
+            if(data.affectedRows)
+            {
+               this.snackBar.open("Image uploaded successfully", "Close", 
+               {
+                duration: 2000,
+              });
+            }
+            else
+            {
+              this.snackBar.open("Try Again", "Close", 
+               {
+                duration: 2000,
+              });
+            }
+           
+          });
+      };
+    }
+  }
+}
