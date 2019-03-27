@@ -8,6 +8,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding:25px;
 
 }
+::ng-deep .mat-checkbox .mat-checkbox-frame
+{
+	border-color:violet !important;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background
+{
+	background-color: darkcyan !important;
+}
+
+::ng-deep .mat-checkbox-disabled
+{
+	border-color:violet !important;
+	background-color: darkcyan !important;
+}
+::ng-deep .mat-checkbox-disabled .mat-checkbox-checked .mat-checkbox-background, 
+::ng-deep .mat-checkbox-disabled .mat-checkbox-indeterminate .mat-checkbox-background
+{
+	background-color: darkcyan !important;
+}
 
 
 ::-webkit-scrollbar {
@@ -50,3 +69,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 		color:black !important;
 		font-weight: bolder;
 	}
+
+	

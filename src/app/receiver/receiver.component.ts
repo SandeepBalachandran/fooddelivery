@@ -43,14 +43,19 @@ export class ReceiverComponent implements OnInit {
 
 
   ngOnInit() {
-    // if(localStorage.getItem('role_of_this_dude')=="receiver")
-    // {
+    this.checkpermission()
+   
+  }
+  checkpermission()
+  {
+    if(localStorage.getItem('role_of_this_dude')=="receivers")
+    {
       this.loaddata();
-    // }
-    // else
-    // {
-    //   this.router.navigate(['/dashboard'])
-    // }
+    }
+    else
+    {
+      this.router.navigate(['/dashboard'])
+    }
   }
   receiverid=1;
   loaddata() {

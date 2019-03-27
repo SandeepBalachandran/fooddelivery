@@ -69,14 +69,19 @@ export class AgentComponent implements OnInit
   name:any;
 
   ngOnInit() {
-    // if(localStorage.getItem('role_of_this_dude')=="agent")
-    // {
+    this.checkpermission()
+    
+  }
+  checkpermission()
+  {
+    if(localStorage.getItem('role_of_this_dude')=="agent")
+    {
       this.loaddata();
-    // }
-    // else
-    // {
-    //   this.router.navigate(['/dashboard'])
-    // }
+    }
+    else
+    {
+      this.router.navigate(['/dashboard'])
+    }  
   }
   agentid=1;
   loaddata() 

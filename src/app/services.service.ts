@@ -96,7 +96,7 @@ export class ServicesService {
   completedonation(donationid,value)
   {
     let body = `id=${donationid}&value=${value}`;
-    return this.http.post<any>(this.baseUrl + 'donation_status_completion', body, this.httpOptions);
+    return this.http.post<any>(this.baseUrl + 'donations_status_complete', body, this.httpOptions);
  
   }
   agentdonationchecked(donationid,value)

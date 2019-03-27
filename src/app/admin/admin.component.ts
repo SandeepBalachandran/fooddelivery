@@ -59,16 +59,16 @@ export class AdminComponent implements OnInit {
   agents: Agent[] = [this.dropdownagents];
 
   ngOnInit() {
-    // if(localStorage.getItem('role_of_this_dude')=="admin")
-    // {
+    if(localStorage.getItem('role_of_this_dude')=="admin")
+    {
       this.loaddata();
       this.loaddropdownagents();
       this.loaddropdownreceivers();
-    // }
-    // else
-    // {
-    //   this.router.navigate(['/dashboard'])
-    // }
+    }
+    else
+    {
+      this.router.navigate(['/dashboard'])
+    }
   }
 
   loaddata() {
@@ -137,6 +137,7 @@ export class AdminComponent implements OnInit {
           console.log(data,this.recieverselected);
         }
       );
+      this.agentPopup = false;
     }
 
   }
@@ -157,9 +158,9 @@ export class AdminComponent implements OnInit {
         // called once readAsDataURL is completed
         this.database64 = event.target.result;
         // console.log(this.url)
-        console.log(this.database64)
+        console.log(this.database64 )
 
-        this.service.addimage(this.selectedfile,this.imagename,this.eventname)
+        this.service.addimage(this.database64,this.imagename,this.eventname)
         .subscribe(data => 
           {
             if(data.affectedRows)
