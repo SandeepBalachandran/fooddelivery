@@ -43,9 +43,9 @@ export class ReceiverComponent implements OnInit {
 
 
   ngOnInit() {
-    this.checkpermission()
-   
-  }
+    // this.checkpermission()
+    this.loaddata()
+   }
   checkpermission()
   {
     if(localStorage.getItem('role_of_this_dude')=="receivers")

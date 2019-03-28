@@ -5,10 +5,10 @@
      <span class="spacer"></span>
      <!-- <a mat-button (click)="goto('auth')">Register</a> -->
      <a mat-button  (click)="goto('dashboard')">Dashboard</a>
-     <a mat-button *ngIf="admin" (click)="goto('admin')">Admin</a>
-     <a mat-button *ngIf="receiver"  (click)="goto('receiver')">Receiver</a>
+     <a mat-button  (click)="goto('admin')">Admin</a>
+     <a mat-button   (click)="goto('receiver')">Receiver</a>
      <a mat-button (click)="goto('provider')">Provider</a>
-     <a mat-button *ngIf="agent"   (click)="goto('agent')">Agent</a>
+     <a mat-button    (click)="goto('agent')">Agent</a>
      <a mat-button (click)="goto('auth')">Auth</a>
      <a mat-button (click)="goto('logout')">Logout</a>
   </mat-toolbar-row>

@@ -69,7 +69,8 @@ export class AgentComponent implements OnInit
   name:any;
 
   ngOnInit() {
-    this.checkpermission()
+    // this.checkpermission()
+    this.loaddata()
     
   }
   checkpermission()

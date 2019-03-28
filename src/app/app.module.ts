@@ -67,6 +67,8 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +96,9 @@ import { AdminComponent } from './admin/admin.component';
     MatRippleModule,
     MatGridListModule,
     HttpClientModule,
+    MatDatepickerModule,        // <----- import(must)
+    MatNativeDateModule,        // <----- import for date formating(optional)
+   
 
 
     CommonModule, 

@@ -59,18 +59,20 @@ export class AdminComponent implements OnInit {
   agents: Agent[] = [this.dropdownagents];
 
   ngOnInit() {
+    // this.checkpermission()
+    this.loaddata()
+   }
+  checkpermission()
+  {
     if(localStorage.getItem('role_of_this_dude')=="admin")
     {
       this.loaddata();
-      this.loaddropdownagents();
-      this.loaddropdownreceivers();
     }
     else
     {
       this.router.navigate(['/dashboard'])
     }
   }
-
   loaddata() {
     // this.loading = true;
     this.service.getdontations().subscribe(
@@ -79,6 +81,8 @@ export class AdminComponent implements OnInit {
         // console.log(data.id )
       }
     );
+    this.loaddropdownagents() 
+    this.loaddropdownreceivers()
 
 
   }
