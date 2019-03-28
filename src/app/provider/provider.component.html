@@ -34,13 +34,13 @@
     </mat-form-field>
     
     <mat-form-field>
-      <input matInput [matDatepicker]="picker1" placeholder="Angular forms" [formControl]="date">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput placeholder="Pickup Time"  [(ngModel)]="pickuptime"></textarea>
+      <textarea matInput placeholder="Pickup"  [(ngModel)]="donoraddress"></textarea>
     </mat-form-field>
 
     <!-- <mat-form-field>
