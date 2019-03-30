@@ -11,9 +11,9 @@ export class AppComponent
 	constructor(private router: Router) { }
 	title = 'fooddelivery';
 
-	admin:boolean;
-	receiver:boolean;
-	agent:boolean;
+	admin=true;
+	receiver=true;
+	agent=true;
 	role= localStorage.getItem('role_of_this_dude')
 
 	// if(this.role=="admin")
