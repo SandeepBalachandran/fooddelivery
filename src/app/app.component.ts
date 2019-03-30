@@ -6,14 +6,17 @@ import { Router } from "@angular/router";
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent 
+{
 	constructor(private router: Router) { }
 	title = 'fooddelivery';
 
-	admin: any;
-	receiver: any;
-	agent: any;
-	role = localStorage.getItem('role_of_this_dude')
+	admin= true;
+	receiver= true;
+	agent=true;
+	role= localStorage.getItem('role_of_this_dude')
+
+	
 
 	goto(clicked: any) {
 		switch (clicked) {
@@ -47,6 +50,8 @@ export class AppComponent {
 				break;
 		}
 	}
+
+	
 
 	
 //   this.admin=="admin"?1:0;

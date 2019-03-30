@@ -147,8 +147,8 @@ export class AdminComponent implements OnInit {
   }
   selectedfile:any;
   database64:any;
-  imagename="imagename";
-  eventname="newevent";
+  imagetitle:any;
+  eventname:any;
   onSelect(event)
   {
     if (event.target.files && event.target.files[0]) 
@@ -162,28 +162,64 @@ export class AdminComponent implements OnInit {
         // called once readAsDataURL is completed
         this.database64 = event.target.result;
         // console.log(this.url)
-        console.log(this.database64 )
+        // console.log(this.database64 )
 
-        this.service.addimage(this.database64,this.imagename,this.eventname)
-        .subscribe(data => 
-          {
-            if(data.affectedRows)
-            {
-               this.snackBar.open("Image uploaded successfully", "Close", 
-               {
-                duration: 2000,
-              });
-            }
-            else
-            {
-              this.snackBar.open("Try Again", "Close", 
-               {
-                duration: 2000,
-              });
-            }
-           
-          });
+       
       };
+     
     }
+
+  }
+
+  submitImage()
+  {
+    console.log(this.imagetitle,this.eventname,this.database64);
+
+    // if(this.imagetitle=="")
+    // {
+    //   this.snackBar.open("Image name needed", "Close", 
+    //        {
+    //         duration: 2000,
+    //       });
+    // }
+    // else if(this.eventname=="")
+    // {
+    //   this.snackBar.open("Event name needee", "Close", 
+    //        {
+    //         duration: 2000,
+    //       });
+    // }
+    // else if(this.database64="")
+    // {
+    //   this.snackBar.open("Upload an aimage", "Close", 
+    //        {
+    //         duration: 2000,
+    //       });
+
+    // }
+    // else
+    // {
+      // console.log(this.imagetitle,this.database64,this.eventname)
+      // return;
+      this.service.addimage(this.imagetitle,this.database64,this.eventname)
+      .subscribe(data => 
+        {
+          if(data.affectedRows)
+          {
+            this.snackBar.open("Image uploaded successfully", "Close", 
+            {
+              duration: 2000,
+            });
+          }
+          else
+          {
+            this.snackBar.open("Try Again", "Close", 
+            {
+              duration: 2000,
+            });
+          }
+        
+        });
+      // }
   }
 }

@@ -92,16 +92,52 @@
       </div>
 		</div>
 
-		<input class="ng-hide" id="input-file-id" multiple type="file" (change)="onSelect($event)" />
-			<label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+		
 
-			<mat-form-field class="example-full-width">
-				<input matInput placeholder="Image Title" [(ngModel)]="imagetitle">
-			</mat-form-field>
+		
 
-			<mat-form-field class="example-full-width">
-				<input matInput placeholder="Event Name" [(ngModel)]="eventname">
-			</mat-form-field>
+
+			
+<div class="col-lg-12">
+	<mat-card class="col-lg-6 example-card ">
+			<mat-card-header>
+					<mat-card-title>Image Upload</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+				
+							<table class="example-full-width" cellspacing="0">
+									<tr>
+											<td>
+												<mat-form-field class="example-full-width">
+													<input matInput placeholder="Image Title" [(ngModel)]="imagetitle">
+												</mat-form-field>
+									
+											
+											</td>
+									</tr>
+									<tr>
+											<td>
+												<mat-form-field class="example-full-width">
+													<input matInput placeholder="Event Name" [(ngModel)]="eventname">
+												</mat-form-field>
+											</td>
+									</tr>
+
+									<tr>
+										<td>
+											<input class="ng-hide" id="input-file-id" multiple type="file" (change)="onSelect($event)" />
+											<label for="input-file-id" class="md-button md-raised md-primary">Choose Files</label>
+										</td>
+									</tr>
+							</table>
+					
+					<!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+			</mat-card-content>
+			<mat-card-actions>
+					<button mat-raised-button (click)="submitImage()" color="primary">Save</button>
+			</mat-card-actions>
+	</mat-card>
+</div>
 
 
 

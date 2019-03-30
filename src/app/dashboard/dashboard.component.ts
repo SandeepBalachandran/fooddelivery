@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import { ServicesService } from '../services.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 
@@ -47,7 +48,7 @@ export class DashboardComponent implements OnInit {
   color: string;
 
 
-  constructor(private service: ServicesService) { }
+  constructor(private service: ServicesService,private sanitizer:DomSanitizer) { }
 
   ELEMENT_DATA: PeriodicElement[] = [];
   dataSource: any;
@@ -105,15 +106,27 @@ export class DashboardComponent implements OnInit {
   assignData() {
     this.agentPopup = true;
   }
+  images:any
   getimage()
   {
      this.service.getimage().subscribe(
       data => {
+        this.images=[]
+        this.images=data
+        this.images.image_data=this.sanitizer.bypassSecurityTrustResourceUrl(this.images.image_data);
        
       }
     );
 
   }
+  transform(){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.images.image_data);
+}
+
+
+  
+
+
  
 }
 export interface Food {
