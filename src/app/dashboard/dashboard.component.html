@@ -52,6 +52,16 @@
 				<td mat-cell *matCellDef="let element"> {{element.donor_name}} </td>
 			</ng-container>
 
+			<ng-container matColumnDef="pickupdate">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Pickup Date </th>
+				<td mat-cell *matCellDef="let element"> {{element.pickupdate}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="pickuptime">
+				<th mat-header-cell *matHeaderCellDef mat-sort-header> Pickup Time </th>
+				<td mat-cell *matCellDef="let element"> {{element.pickuptime}} </td>
+			</ng-container>
+
 			<ng-container matColumnDef="donor_address">
 				<th mat-header-cell *matHeaderCellDef mat-sort-header> Donor Address </th>
 				<td mat-cell *matCellDef="let element"> {{element.donor_address}} </td>

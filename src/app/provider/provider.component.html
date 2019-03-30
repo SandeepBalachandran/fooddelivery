@@ -33,14 +33,12 @@
       <textarea matInput placeholder="Donor Address"  [(ngModel)]="donoraddress"></textarea>
     </mat-form-field>
     
-    <mat-form-field>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+
+     <input type="date"   [(ngModel)]="pickupdate">
+   
 
     <mat-form-field>
-      <textarea matInput placeholder="Pickup"  [(ngModel)]="donoraddress"></textarea>
+      <input matInput placeholder="Pick Up Time" [(ngModel)]="pickuptime" />
     </mat-form-field>
 
     <!-- <mat-form-field>

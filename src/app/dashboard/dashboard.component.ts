@@ -29,7 +29,7 @@ export interface Tile {
 })
 export class DashboardComponent implements OnInit {
   displayedColumns: string[] = [
-    'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address',
+    'event_name', 'food_type', 'quantity','agent','receiver','address','donor_name','donor_address','pickupdate','pickuptime',
     'checked','pickedup','delivered'];
 
 

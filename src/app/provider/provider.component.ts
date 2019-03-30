@@ -53,25 +53,25 @@ export class ProviderComponent implements OnInit {
     console.log(this.donorname,this.eventname,this.foodtype,this.eventtime,this.quantity,this.address,this.donoraddress,this.donormobile,this.pickuptime,this.pickupdate
 
     )
-    // this.loading = true;
-    // this.service.savedonation(this.donorname,this.eventname,this.foodtype,this.eventtime,this.quantity,this.address,this.donoraddress,this.donormobile ,this.agent,
-    //   this.receiver,this.checked,this.pickup,this.delivery,this.complete).subscribe(
-    //     data => {
-    //       console.log(data)
-    //       if(data.affectedRows)
-    //       {
-    //         this.snackBar.open("Datas Stored Succesfully", "Close", {
-    //           duration: 2000,
-    //         });
-    //       }
-    //       else
-    //       {
-    //         this.snackBar.open("Error-Do it again", "Close", {
-    //           duration: 2000,
-    //         });
-    //       }
-    //     }
-    //   );
+
+    this.service.savedonation(this.donorname,this.eventname,this.foodtype,this.eventtime,this.quantity,this.address,this.donoraddress,this.donormobile ,this.agent,
+      this.receiver,this.checked,this.pickup,this.delivery,this.complete,this.pickuptime,this.pickupdate).subscribe(
+        data => {
+          console.log(data)
+          if(data.affectedRows)
+          {
+            this.snackBar.open("Datas Stored Succesfully", "Close", {
+              duration: 2000,
+            });
+          }
+          else
+          {
+            this.snackBar.open("Error-Do it again", "Close", {
+              duration: 2000,
+            });
+          }
+        }
+      );
   }
   reset()
   {

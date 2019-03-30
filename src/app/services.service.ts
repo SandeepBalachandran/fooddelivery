@@ -35,20 +35,10 @@ export class ServicesService {
     return this.http.post<any>(this.baseUrl + 'receivers_donation',body,this.httpOptions);
   }
 
-  // getagents() 
-  // {
-  //   return this.http.get<any>(this.baseUrl + 'agents');
-  // }
-
   getdontations() 
   {
     return this.http.get<any>(this.baseUrl + 'alldonations');
   }
-
-  // getreceivers() 
-  // {
-  //   return this.http.get<any>(this.baseUrl + 'receivers');
-  // }
 
   register(name,address,username,password,mobilenumber,role) 
   {
@@ -74,9 +64,9 @@ export class ServicesService {
     return this.http.get<any>(this.baseUrl + 'receivers');
   }
 
-  savedonation(donorname,eventname,foodtype,eventtime,quantity,address,donoraddress,donormobile,agent,receiver,checked,pickup,delivery,complete)
+  savedonation(donorname,eventname,foodtype,eventtime,quantity,address,donoraddress,donormobile,agent,receiver,checked,pickup,delivery,complete,pickupdate,pickuptime)
   {
-    let body = `event_name=${eventname}&food_type=${foodtype}&event_time=${eventtime}&address=${address}&quantity=${quantity}&donor_name=${donorname}&donor_address=${donoraddress}&donar_mobile=${donormobile}&agent=${agent}&receiver=${receiver}&checked=${checked}&pickup=${pickup}&delivery=${delivery}&complete=${complete}`;
+    let body = `event_name=${eventname}&food_type=${foodtype}&event_time=${eventtime}&address=${address}&quantity=${quantity}&donor_name=${donorname}&donor_address=${donoraddress}&donar_mobile=${donormobile}&agent=${agent}&receiver=${receiver}&checked=${checked}&pickup=${pickup}&delivery=${delivery}&complete=${complete}&pickupdate=${pickupdate}&pickuptime=${pickuptime}`;
     return this.http.post<any>(this.baseUrl + 'add_donations', body, this.httpOptions);
   }
 
