@@ -48,6 +48,11 @@ export class ProviderComponent implements OnInit {
 
   }
 
+  addEvent(type: string, event) {
+    this.pickupdate=event.target.value
+  }
+
+
   savedata()
   {
     console.log(this.donorname,this.eventname,this.foodtype,this.eventtime,this.quantity,this.address,this.donoraddress,this.donormobile,this.pickuptime,this.pickupdate
@@ -78,6 +83,7 @@ export class ProviderComponent implements OnInit {
     this.donorname='';this.eventname='';this.foodtype='';this.eventtime='';this.quantity='';this.address='';this.donoraddress='';this.donormobile=''
   }
 
+ 
   dateChange(event,newDate: any)
   {
     console.log(event.target.value);

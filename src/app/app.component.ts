@@ -18,8 +18,10 @@ export class AppComponent
 
 	
 
-	goto(clicked: any) {
-		switch (clicked) {
+	goto(clicked: any) 
+	{
+		switch (clicked) 
+		{
 			case 'dashboard':
 				this.router.navigate(['/dashboard'])
 				break;
