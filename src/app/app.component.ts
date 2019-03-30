@@ -11,14 +11,36 @@ export class AppComponent
 	constructor(private router: Router) { }
 	title = 'fooddelivery';
 
-	admin= true;
-	receiver= true;
-	agent=true;
+	admin:boolean;
+	receiver:boolean;
+	agent:boolean;
 	role= localStorage.getItem('role_of_this_dude')
+
+	// if(this.role=="admin")
+	// {
+	// 	this.admin=true;
+	// 	this.receiver=false;
+	// 	this.agent=false;
+	// }
+
+	// if(this.role=="receiver")
+	// {
+	// 	this.admin=false;
+	// 	this.receiver=true;
+	// 	this.agent=false;
+	// }
+
+
+	// if(this.role=="agent")
+	// {
+	// 	this.admin=false;
+	// 	this.receiver=false;
+	// 	this.agent=true;
+	// }
 
 	
 
-	goto(clicked: any) 
+	goto(clicked: string) 
 	{
 		switch (clicked) 
 		{
